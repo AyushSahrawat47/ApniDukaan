@@ -1,0 +1,83 @@
+[
+    {
+      "id": 1,
+      "name": "Organic Almonds",
+      "description": "High-quality organic almonds sourced from sustainable farms.",
+      "price": 15.99,
+      "category": "Nuts",
+      "imageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 2,
+      "name": "Whole Grain Oats",
+      "description": "Healthy whole grain oats perfect for breakfast and baking.",
+      "price": 8.99,
+      "category": "Grains",
+      "imageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 3,
+      "name": "Organic Honey",
+      "description": "Pure organic honey with no additives, straight from the hive.",
+      "price": 12.99,
+      "category": "Sweeteners",
+      "imageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 4,
+      "name": "Quinoa",
+      "description": "Versatile and nutritious organic quinoa for salads and side dishes.",
+      "price": 10.99,
+      "category": "Grains",
+      "imageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 5,
+      "name": "Chia Seeds",
+      "description": "Organic chia seeds rich in omega-3 fatty acids and fiber.",
+      "price": 9.99,
+      "category": "Seeds",
+      "imageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 6,
+      "name": "Coconut Oil",
+      "description": "Cold-pressed organic coconut oil, great for cooking and skincare.",
+      "price": 14.99,
+      "category": "Oils",
+      "imageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 7,
+      "name": "Green Tea",
+      "description": "Organic green tea leaves for a refreshing and healthy beverage.",
+      "price": 7.99,
+      "category": "Beverages",
+      "imageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 8,
+      "name": "Dried Apricots",
+      "description": "Naturally sweet organic dried apricots, perfect for snacking.",
+      "price": 11.99,
+      "category": "Dried Fruits",
+      "imageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 9,
+      "name": "Organic Spinach",
+      "description": "Fresh and nutrient-rich organic spinach leaves.",
+      "price": 3.99,
+      "category": "Vegetables",
+      "imageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 10,
+      "name": "Organic Avocados",
+      "description": "Creamy and delicious organic avocados, perfect for salads and sandwiches.",
+      "price": 6.99,
+      "category": "Fruits",
+      "imageUrl": "https://via.placeholder.com/150"
+    }
+  ]
+  
