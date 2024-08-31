@@ -1,50 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const CartItem = require('../models/cartModel')
+const CartItem = require('../models/Cart')
+const Product = require('../models/Product')
 
 
-router.post('/addToCart', async(req,res)=>{
-    
+router.post('/add-to-cart/:id', async(req,res)=>{
+    const id = req.params.id;
     try{
-        const {id, name, imageUrl, price} = req.body;
-        
-        const item = new CartItem({
-            id, name, imageUrl, price
-        })
-        const addedItem = await item.save()
-    
-        res.json(addedItem)
-
+        const isProduct = await Product.findById(id);
+        if(!isProduct) return res.status(404).json({message: "Product not found"});
+        const {name, price, imageUrl} = isProduct;
+        const cartItem = new CartItem({id, name, price, imageUrl})
+        await cartItem.save();
+        res.status(200).json("successfully added to cart")
     }catch(err){
         console.log(err.message)
         res.status(500).send("Internal Server Error")
     }
-})
+});
 
-
-
-
-
-
-// ROUTE 1: Add a new Note using: POST "/api/notes/addnote". Login required
-router.post('/addnote', async (req, res) => {
-        try {
-            const { title, description, tag } = req.body;
-
-            // If there are errors, return Bad request and the errors
-            const errors = validationResult(req);
-            if (!errors.isEmpty()) {
-                return res.status(400).json({ errors: errors.array() });
-            }
-            const note = new Note({
-                title, description, tag, user: req.user.id
-            })
-            const savedNote = await note.save()
-
-            res.json(savedNote)
-
-        } catch (error) {
-            console.error(error.message);
-            res.status(500).send("Internal Server Error");
-        }
-    })
+module.exports = router;

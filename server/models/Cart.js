@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const CartSchema = new Schema({
     id:{
-        type:Number,
+        type:String,
         required: true,
         unique: true,
     },
@@ -25,4 +25,4 @@ const CartSchema = new Schema({
     },
   });
 
-  module.exports = mongoose.model('cartItems', CartSchema);
+  module.exports = mongoose.model('Cart', CartSchema);

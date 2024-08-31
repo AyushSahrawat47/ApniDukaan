@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/ProductModel')
+const Product = require('../models/Product')
 
 router.get('/new-product', async (req, res)=>{
     const {pid, name, description, imageUrl, price, category } = req.body;
@@ -39,6 +39,20 @@ router.put('/:id', async (req, res) => {
         res.status(500).json({message:err.mesage})
     };
 });
+
+//fetch all products
+router.get('/all-products', async (req, res) => {
+    try{
+        const products = await Product.find();
+        if(!products){
+            res.status(404).json("No products found !!")
+        }
+        res.json(products);
+    }
+    catch(err){
+        res.status(500).json({message:err.message})
+    };
+})
 
 
 module.exports = router;
