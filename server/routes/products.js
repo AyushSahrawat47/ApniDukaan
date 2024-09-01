@@ -47,7 +47,7 @@ router.get('/all-products', async (req, res) => {
         if(!products){
             res.status(404).json("No products found !!")
         }
-        res.json(products);
+        res.send(products);
     }
     catch(err){
         res.status(500).json({message:err.message})

@@ -14,11 +14,11 @@ const Products = () => {
   // Function to fetch products from the backend
   //might add a loading bar later
   const updateProducts = async () => {
-    const url = 'http://localhost:5000/api/products';
+    const url = 'http://localhost:5000/api/products/all-products';
     let data = await fetch(url);
     let parsedData = await data.json()
     // here the product are being stored in our product state 
-    setProducts(parsedData.products)
+    setProducts(parsedData)
   }
 
   // it will refetch the products whenever there is a change
@@ -33,7 +33,7 @@ const Products = () => {
       <Row>
         {/* Products are fetch through map function which will iterate through each and every product inside our array which is coming through api */}
         {products.map((product) => (
-          <Col key={product.id} md={3} className="mb-4">
+          <Col key={product._id} md={3} className="mb-4">
             <ProductItem
               id={product.id}
               title={product.name}
