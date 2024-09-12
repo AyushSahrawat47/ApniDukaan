@@ -24,7 +24,7 @@ router.get('/new-product', async (req, res)=>{
 });
 
 // update existing product 
-router.put('/:id', async (req, res) => {
+router.put('update/:id', async (req, res) => {
     const id = req.params.id;
     const {name, description, imageUrl, price, category} = req.body;
     try{
@@ -52,6 +52,23 @@ router.get('/all-products', async (req, res) => {
     catch(err){
         res.status(500).json({message:err.message})
     };
+})
+
+//fetch specific products using product id
+router.get('/:id', async (req, res) => {
+    try{
+        const id  = req.params.id;
+        const isProduct = await Product.findById(id);
+        if(isProduct){
+            res.json(isProduct);
+        }
+        else{
+            res.status(404).json("Product not found !!")
+        }
+    }
+    catch(err){
+        res.status(500).json({message:err.message})
+    }
 })
 
 

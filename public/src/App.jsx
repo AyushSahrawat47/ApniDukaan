@@ -1,9 +1,8 @@
 import MyNavbar from "./components/Navbar";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Products from "./components/Products"
-import ProductPageWrapper from './components/productPageWrapper'
+import ProductPage from './pages/ProductPage'
 import Cart from "./pages/Cart";
-import RegisterPage from "./pages/Register";
 
 function App() {
   return (
@@ -12,8 +11,7 @@ function App() {
       <MyNavbar />
         <Routes>
           <Route path="/" element= <Products/> />
-          <Route path="/register" element= <RegisterPage/> />
-          <Route path="/product/:id" element= <ProductPageWrapper/> />
+          <Route path="/product/:id" element = <ProductPage/> />
           <Route path = "/cart" element = <Cart/> />
         </Routes>
       </BrowserRouter>

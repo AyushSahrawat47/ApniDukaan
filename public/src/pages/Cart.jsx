@@ -1,13 +1,9 @@
 import React, {useContext} from "react";
-import { Container, Row, Col, Card, Button, ListGroup } from "react-bootstrap";
+import { Container, Row, Col, Button, ListGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { CartContext } from '../context/CartContext';
 
 const Cart = () => {
-  const {cartItems} = useContext(CartContext);
-  const {removeFromCart} = useContext(CartContext);
   const handleRemove = (item) => {
-    removeFromCart(item.id)
   }
 
   // const calculateTotal = () => {

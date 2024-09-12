@@ -18,7 +18,7 @@ const Products = () => {
     let data = await fetch(url);
     let parsedData = await data.json()
     // here the product are being stored in our product state 
-    setProducts(parsedData)
+    setProducts(parsedData);
   }
 
   // it will refetch the products whenever there is a change
@@ -33,9 +33,9 @@ const Products = () => {
       <Row>
         {/* Products are fetch through map function which will iterate through each and every product inside our array which is coming through api */}
         {products.map((product) => (
-          <Col key={product._id} md={3} className="mb-4">
+          <Col key={product._id} md={4} className="mb-4">
             <ProductItem
-              id={product.id}
+              id={product._id}
               title={product.name}
               description={product.description}
               imageUrl={product.imageUrl}

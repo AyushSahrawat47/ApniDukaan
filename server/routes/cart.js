@@ -20,7 +20,7 @@ router.post('/add-to-cart/:id', async(req,res)=>{
 });
 
 //remove from cart
-router.delete('/:id', async(req,res)=>{
+router.delete('/remove-item/:id', async(req,res)=>{
     try{
         const id = req.params.id;
         const isPresent = Cart.findOne(id);
