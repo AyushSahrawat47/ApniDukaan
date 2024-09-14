@@ -1,62 +1,55 @@
-import React, {useContext} from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button, ListGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {Link }from "react-router-dom"
 
 const Cart = () => {
-  const handleRemove = (item) => {
+  const [cart, setCart] = useState([]);
+
+  const fetchCart = async()=>{
+    const response = await fetch("http://localhost:5000/api/cart/all-items")
+    const data = await response.json()
+    setCart(data)
   }
 
-  // const calculateTotal = () => {
-  //   return cartItems
-  //     .reduce((total, item) => total + item.price * item.quantity, 0)
-  //     .toFixed(2);
-  // };
+  const removeItem = async(id)=>{
+    try{
+      const response = await fetch (`http://localhost:5000/api/cart/remove-item/${id}`,{
+        method: "DELETE",
+      });
+      if(response.ok){
+        // Update the cart state after successfully removing the item
+        setCart(cart.filter((item) => item._id !== id));
+      }
+      else{
+        console.error("failed to remove item")
+      }
+    }
+    catch(err){
+      console.error('Error:',err)
+    }
+  }
 
-  //useEffect for reloading cart
+  useEffect(()=>{
+    fetchCart();
+  },[])
   
 
   return (
     <>
-      <Container className="mt-5">
+      <Container>
         <Row>
-          <Col>
-            <h2>Shopping Cart</h2>
-            <ListGroup>
-              {cartItems.map((item) => (
-                <ListGroup.Item key={item.id}>
-                  <Row>
-                    <Col md={2}>
-                      <img
-                        src={item.imageUrl}
-                        alt={item.name}
-                        style={{
-                          width: "100px",
-                          height: "100px",
-                          objectFit: "cover",
-                        }}
-                      />
-                    </Col>
-                    <Col md={6}>
-                      <h5>{item.title}</h5>
-                      <p>${item.price.toFixed(2)}</p>
-                      {/* <p>Quantity: {item.quantity}</p> */}
-                    </Col>
-                    <Col md={4} className="text-end">
-                      <h5>${(item.price /** {item.quantity}*/).toFixed(2)}</h5>
-                      <Button onClick={()=>handleRemove(item.id)} variant="danger">Remove</Button>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-            {cartItems.length > 0? 
-            <div className="mt-3">
-              {/* <h4>Total: ${calculateTotal()}</h4>  */}
-              <Button variant="primary">Proceed to Checkout</Button>
-            </div>
-            : <h4>Cart is empty</h4>
-            }
-          </Col>
+        {cart.map((item) => (
+            <Col key={item._id} md={4} className="mb-4">
+              <h1>{item.name}</h1>
+              <img src={item.imageUrl} alt={item.name} className="img-fluid" />
+              <ListGroup.Item>{item.price}</ListGroup.Item>
+              <Button onClick={()=>removeItem(item._id)}> Remove Item</Button>
+            </Col>
+          ))}
+        <Button className="text-success">
+          <Link to="/payment">Payment</Link>
+        </Button>
         </Row>
       </Container>
     </>

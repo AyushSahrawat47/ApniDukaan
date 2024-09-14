@@ -37,7 +37,7 @@ router.delete('/remove-item/:id', async(req,res)=>{
 router.get('/all-items', async(req,res)=>{
     try{
         const cartItems = await Cart.find();
-        res.send(cartItems);
+        res.json(cartItems);
     }
     catch(err){
         res.status(500).json({message:err.message})
