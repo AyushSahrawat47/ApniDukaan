@@ -8,6 +8,7 @@ function ProductItem(props) {
 
   return (
     <div>
+      
       <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src={imageUrl} alt={title} />
         <Card.Body>
