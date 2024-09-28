@@ -1,6 +1,7 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Button, Card } from "react-bootstrap";
+import './styles.css'
 
 function ProductItem(props) {
   let { title, description, imageUrl, price, id } = props;
@@ -8,8 +9,16 @@ function ProductItem(props) {
 
   return (
     <div>
-      
-      <Card style={{ width: "18rem" }}>
+      <div id="product">
+        <div id="img">
+            <img src={imageUrl} alt="just an image"/>
+        </div>
+        <div id="details">
+            <h1>{title}</h1>
+            <p>{description} </p>
+        </div>
+      </div>
+      {/* <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src={imageUrl} alt={title} />
         <Card.Body>
           <Card.Title>{title}</Card.Title>
@@ -23,7 +32,7 @@ function ProductItem(props) {
             </Button>
           </Link>
         </Card.Body>
-      </Card>
+      </Card> */}
     </div>
   );
 }

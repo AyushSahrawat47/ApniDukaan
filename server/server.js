@@ -10,6 +10,7 @@ app.use(cors())
 //routes
 app.use('/api/products', require('./routes/products'));
 app.use('/api/cart', require('./routes/cart'));
+app.use('/api/user', require('./routes/user'));
 
 
 

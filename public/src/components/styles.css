@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=SUSE:wght@100..800&display=swap');
+
+#product{
+    background-color: transparent;
+}
+
+#img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+#img img{
+    max-width: 40% ;
+    height: auto;
+    border-radius: 10%;
+}
+#details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
+    /* hei */
+}
+
+#details h1{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+#details p{
+    font-family: "SUSE", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    max-width: 40vw;
+}

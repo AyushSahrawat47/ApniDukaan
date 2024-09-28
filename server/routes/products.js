@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product')
 
+
+//Add new product
 router.get('/new-product', async (req, res)=>{
     const {pid, name, description, imageUrl, price, category } = req.body;
     
